@@ -213,5 +213,3 @@ SOFTWARE.
 
 ---
 
-**Last Updated:** September 2024  
-**Maintained for:** Cybersecurity education and security research
