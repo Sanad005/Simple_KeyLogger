@@ -21,17 +21,12 @@ This keylogger demonstrates fundamental concepts in:
 - **Logging mechanisms** — Persistent data recording and analysis
 
 
-**Educational use cases:**
-- Understand how endpoint detection and response (EDR) solutions identify suspicious input monitoring
-- Learn reverse-engineering defensive security tools
-- Analyze system behavior patterns for intrusion detection
-- Study data exfiltration methodologies
+
 
 ---
 
 ## Features
 
-### Current Implementation
 - **Keystroke Capture** — Logs every key press with timestamp
 - **Active Application Context** — Records which window/application has focus at each keystroke
 - **File Logging** — Persistent storage to `keylog.txt`
