@@ -34,9 +34,9 @@ This keylogger demonstrates fundamental concepts in:
 
 ### Logged Data Format
 ```
-[2024-09-14 14:23:45,123]:App:Google Chrome | Key:h
-[2024-09-14 14:23:45,234]:App:Google Chrome | Key:e
-[2024-09-14 14:23:45,345]:App:Visual Studio Code | Key:l
+[2026-09-14 14:23:45,123]:App:Google Chrome | Key:h
+[2026-09-14 14:23:45,234]:App:Google Chrome | Key:e
+[2026-09-14 14:23:45,345]:App:Visual Studio Code | Key:l
 ```
 
 ---
