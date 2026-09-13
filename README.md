@@ -1,6 +1,6 @@
 # Keystroke Logger - Educational Security Project
 
-A Python-based keystroke logging application designed for **security research and educational purposes** to understand input monitoring, system intrusion detection, and endpoint security mechanisms.
+A Python-based keystroke logging application designed for **security research and educational purposes** to understand input monitoring,  and Window/application context tracking
 
 ## ⚠️ Disclaimer
 
@@ -19,7 +19,7 @@ This keylogger demonstrates fundamental concepts in:
 - **Input device monitoring** — How operating systems capture and forward input events
 - **Window/application context tracking** — Understanding active process detection
 - **Logging mechanisms** — Persistent data recording and analysis
-- **Detection evasion identification** — Learning what endpoint protection solutions look for
+
 
 **Educational use cases:**
 - Understand how endpoint detection and response (EDR) solutions identify suspicious input monitoring
@@ -130,34 +130,8 @@ def on_press(key):
 - **Cross-app visibility** — Protected applications (Windows Hello, password managers) may block access
 - **No persistence mechanism** — Dies when script terminates
 
-### How EDR/Security Tools Detect This
-- **Input device hook detection** — Monitor for `SetWindowsHookEx()` or pynput equivalents
-- **File access monitoring** — Detect unusual file creation/modification (keylog.txt)
-- **Process behavior analysis** — Identify keystroke capture pattern signatures
-- **Registry/config scanning** — Look for known keylogger configurations
-- **Memory inspection** — Scan loaded DLLs and hook tables
 
----
 
-## Potential Learning Extensions
-
-### Defensive/Detection Features
-```python
-# Add these to understand attack/defense tradeoffs:
-- Keystroke pattern analysis (identify unusual typing rhythms)
-- Log encryption (practice securing sensitive captures)
-- Rotating/compressing log files (evasion techniques)
-- Network transmission simulation (understand C2 callbacks)
-- Process tree inspection (learn parent-child relationships)
-- Clipboard monitoring (expand beyond keyboard)
-```
-
-### Companion Projects
-- **Keylogger Detector** — Build a script that identifies keystroke logging patterns
-- **Behavior Analysis** — Analyze captured logs for patterns (e.g., password entry rhythms)
-- **EDR Evasion Analysis** — Identify detection signatures and understand defensive responses
-
----
 
 ## Ethical Use Guidelines
 
@@ -192,33 +166,7 @@ Replace `pywinctl` with platform-specific alternatives:
 
 ---
 
-## Security Hardening (for authorized use)
 
-If deploying in legitimate security testing:
-
-```python
-# 1. Encrypt logs
-from cryptography.fernet import Fernet
-cipher = Fernet(key)
-encrypted = cipher.encrypt(log_data)
-
-# 2. Use secure deletion
-import shutil
-shutil.disk_usage('keylog.txt')  # Verify before cleanup
-
-# 3. Add authentication
-# Require credentials before accessing logs
-
-# 4. Implement log rotation
-import logging.handlers
-handler = logging.handlers.RotatingFileHandler(
-    'keylog.txt', maxBytes=5*1024*1024, backupCount=5
-)
-```
-
----
-
-## Troubleshooting
 
 ### Script Won't Capture Keys
 - **Solution:** Run with administrator/elevated privileges
@@ -232,8 +180,6 @@ handler = logging.handlers.RotatingFileHandler(
 - **Cause:** Listener callback executing heavy operations
 - **Solution:** Move logging to separate thread or queue
 
-### keylog.txt Growing Too Large
-- **Solution:** Implement log rotation (see Security Hardening section)
 
 ---
 
@@ -245,36 +191,7 @@ handler = logging.handlers.RotatingFileHandler(
 
 ---
 
-## Learning Outcomes
 
-After working with this project, you should understand:
-- ✓ How keyloggers interact with operating system input mechanisms
-- ✓ Window/application context detection at the OS level
-- ✓ Detection techniques used by endpoint protection solutions
-- ✓ Logging strategies and data persistence
-- ✓ Ethical implications of input device monitoring
-- ✓ Legal frameworks governing system monitoring
-
----
-
-## Related Topics to Explore
-
-- **Endpoint Detection & Response (EDR)** — How tools detect this activity
-- **Operating System Security** — Input device protection mechanisms
-- **Forensic Analysis** — Recovering/analyzing logs post-incident
-- **Anti-debugging** — Techniques to evade analysis tools
-- **Secure Logging** — Encryption and tamper-proofing of audit trails
-
----
-
-## References
-
-- [pynput Documentation](https://pynput.readthedocs.io/)
-- [pywinctl Documentation](https://pywinctl.readthedocs.io/)
-- [MITRE ATT&CK - Input Capture](https://attack.mitre.org/techniques/T1056/004/)
-- [CIS Controls - Detailed Logging](https://www.cisecurity.org/cis-controls)
-
----
 
 ## License
 
